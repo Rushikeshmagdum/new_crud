@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
+    <title>Manage Users</title>
+  </head>
+  <body>
+      <div class="container">
+          <div class="card mt-4">
+              <div class="card-header bg-primary">
+                  <h4 class="text-left text-white">Manage Users</h4>
+              </div>
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col text-right">
+                        <a class="btn btn-success " href="/manageUsers/add"><i class="fa fa-plus"></i> Create New</a>
+                      </div>
+                  </div>
+                  <div class="table-responsive mt-4">
+                      
+                      <table class="table table-bordered table-striped text-center text-nowrap">
+                          <thead class="bg-info text-white">
+                              <th>#</th>
+                              <th>First Name</th>
+                              <th>Last Name</th>
+                              <th>Email</th>
+                              <th>Contact</th>
+                              <th>Action</th>
+                          </thead>
+                          <tbody>
+                              <%for(let i=0; i<users.length; i++){%>
+                              <tr>
+                                  <td><%- i+1 %></td>
+                                  <td><%- users[i].firstName%></td>
+                                  <td><%- users[i].lastName%></td>
+                                  <td><%- users[i].email%></td>
+                                  <td><%- users[i].contact%></td>
+                                  <td>
+                                      <a class="btn btn-warning text-white" href="/manageUsers/edit/<%-users[i]._id%>"><i class="fa fa-edit"></i></a>
+                                      <a class="btn btn-danger text-white" href="/manageUsers/delete/<%-users[i]._id%>"><i class="fa fa-trash"></i></a>
+                                  </td>
+                              </tr>
+                              <%}%>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/javascripts/jquery-3.3.1.slim.min.js"></script>
+    <script src="/javascripts/popper.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+  </body>
+</html>
